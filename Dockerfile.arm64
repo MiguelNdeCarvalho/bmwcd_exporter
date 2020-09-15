@@ -22,6 +22,6 @@ COPY --from=builder /build/app .
 
 EXPOSE 9744
 
-CMD ./app -username "$USERNAME" -password "$PASSWORD" -port "$PORT"
+CMD ./app -username "$USERNAME" -password "$PASSWORD"
 
 HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:9744/
