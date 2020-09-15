@@ -2,8 +2,8 @@ FROM golang:1.15.2 AS builder
 
 COPY . /build
 
-RUN apt update && \
-    apt install -y gcc-aarch64-linux-gnu && \
+RUN apt-get update && \
+    apt-get install -y gcc-aarch64-linux-gnu && \
     cd /build && \
     CGO_ENABLED=1 CC=aarch64-linux-gnu-gcc GOOS=linux GOARCH=arm64 go build -o app .
 
