@@ -3,7 +3,7 @@ FROM golang:1.15.2 AS builder
 COPY . /build
 
 RUN cd /build && \
-    CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -o app .
+    CGO_ENABLED=0 GOOS=linux GOARCH=${ARCH} go build -ldflags="-w -s" -o bmwcd_exporter .
 
 # Real image
 FROM ubuntu:focal
