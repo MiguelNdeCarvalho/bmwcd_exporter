@@ -14,5 +14,3 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 EXPOSE 9744
 
 ENTRYPOINT [ "/bin/bmwcd_exporter" ]
-
-HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:9744/
